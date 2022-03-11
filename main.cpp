@@ -2,17 +2,11 @@
 #include <unistd.h>
 #include <thread>
 #include <chrono>
-
-// Yoo what up
-// The cpu screams when ever I  type in a comment
-
 using namespace std;
-
 
 void sign (double &funcmoney);
 //trello link https://trello.com/invite/b/EXeBDcQ0/1135132e6ba9562fa16a5d1db1b3beef/shreks-pizza
 //money multi .pliers for late game
-int jobswitch();
 float percent;
 
 float multiplier=1;
@@ -65,11 +59,7 @@ if (returner==-1){
   //work
 while (looper!=5){
 cout << "Choose a job:\n";
-cout <<  " Automatic jobs require no input.\n";
-cout <<  " Manual jobs require user-input.\n";
-cout <<  "| (1)Pizza Delivery (Auto)\n";
-cout <<  "| (2)Shrek's Pizza Manager (Auto)\n";
-cout <<  "| (3)Pizza Chef (Manual)\n";
+cout <<  "| (1)Pizza Delivery\n| (2)Shrek's Pizza Manager\n| (3)Pizza Chef\n";
 cin >> jobchoice;
   looper=5;
   }
@@ -78,21 +68,21 @@ switch (jobchoice){
   // delivery
   working1();
   cout << "You delivered a fresh pizza.\n";
-  cout << "You gained " << 21 * multiplier << " dollars.\n";
-money = money + 21 * multiplier;
+  cout << "You gained " << 7 * multiplier << " dollars.\n";
+money = money + 7 * multiplier;
   break;
   case 2 :
   working2();
-  cout << "While managing Shrek's Pizza, \n you gained " << 35 * multiplier << " dollars.\n";
-  money = money + 35 * multiplier;
+  cout << "While managing Shrek's Pizza, \n you gained " << 25 * multiplier << " dollars.\n";
+  money = money + 25 * multiplier;
   break;
   case 3 :
   cook=working3();
   if (cook==1){
     cout << "No money has been rewarded\n";
   }else if (cook==8){
-  cout << "You have been rewarded with "<< 10 * multiplier << " dollars.\n";
-  money = money + (10 * multiplier);
+  cout << "You have been rewarded with "<< 15 * multiplier << " dollars.\n";
+  money = money + (15 * multiplier);
   }else{
     cout << "???\n";
   }
@@ -167,45 +157,14 @@ cout << "Swamp access key is: abc123.\n";
     case 1 : 
     cout << "| Chanclas - Sell amount: \n";
     cin >> choice;
-
-  //randomizer
-    if (choice>chancla){
+    if (choice<=chancla){
+    chancla = chancla - choice;
+    money = money + (choice * 7);
+    cout << "| Sell successful.\nSold: " << choice << " chanclas for $7 each.\n";
+    break;
+    }else if (choice>chancla){
       cout << "You are trying to sell more\n chanclas than you own!\n";
       break;
-      }else if (choice<=chancla){
-    srand(time(NULL));
-    int x = rand() % 5 + 1;
-
-    if (x == 1) {
-      chancla = chancla - choice;
-    money = money + (choice * 5.5) * multiplier;
-   cout << "| Sell successful.\nSold: " << choice << " chanclas for $" << 5.5 * multiplier << " each.\n"; 
-    break;
-    } else if (x == 2) {
-      cout << "- - Market Crash - -\n";
-      chancla=chancla-choice; 
-      cout << "| Your " << choice << " chanclas\n| sold for $" << 2 * multiplier << " each.\n| Sorry!\n";
-      money = money + (2 * multiplier);
-      break;
-    } else if (x == 3) {
-            chancla = chancla - choice;
-    money = money + (choice * 5.5) * multiplier;
-   cout << "| Sell successful.\nSold: " << choice << " chanclas for $" << 5.5 * multiplier << " each.\n"; 
-    break;
-    } else if (x == 4) {
-            chancla = chancla - choice;
-    money = money + (choice * 5.5) * multiplier;
-   cout << "| Sell successful.\nSold: " << choice << " chanclas for $" << 5.5 * multiplier << " each.\n"; 
-    break;
-    }else if (x == 5){
-            chancla = chancla - choice;
-    money = money + (choice * 5.5) * multiplier;
-   cout << "| Sell successful.\nSold: " << choice << " chanclas for $" << 5.5 * multiplier << " each.\n"; 
-    break;
-    }
-
- 
-    
     }
     break;
     case 2 :
@@ -214,7 +173,7 @@ cout << "Swamp access key is: abc123.\n";
     if (choice<=fortnitecard){
       fortnitecard=fortnitecard-choice;
       money=money+(choice*21);
-        cout << "| Sell successful.\nSold: " << choice << " FN cards with a profit of $" << 4 * multiplier << " each.\n";
+        cout << "| Sell successful.\nSold: " << choice << " FN cards with a profit of $3 each.\n";
       break;
       }else if (choice>chancla){
       cout << "You are trying to sell more\nfortnite cards than you own!\n";
@@ -241,7 +200,6 @@ cout << "Swamp access key is: abc123.\n";
 int printOptions(){
 
   cout << "- - Select Action - -\n";
-  cout << "| (0) Change Job\n";
   cout << "| (1) Work (Gains Money)\n";
   cout << "| (2) Go to shop (Buy)\n";
   cout << "| (3) Check items\n";
@@ -251,9 +209,6 @@ if (swamppin==1){
   cout << "| (5) Sell items on Market\n";
   cin >> choice;
   switch (choice){
-    case 0 :
-    jobchoice=jobswitch();
-    break;
     case 1 :
     // work (money)
     cout << "Work\n";
@@ -414,7 +369,7 @@ void loading () {
       break;
     }
 }
-void working1 () { // look at chat in repit
+void working1 () { 
   
 cout << "Grabbing pizza";
     cout << ' ' <<flush;
@@ -649,13 +604,4 @@ switch (idk){
 }
   }while(bulk>1);
 return 0;
-  }
-int jobswitch(){
-cout << "Choose new job:\n";
-cout <<  " Automatic jobs require no input.\n";
-cout <<  " Manual jobs require user-input.\n";
-cout <<  "| (1)Pizza Delivery(Auto)\n| (2)Shrek's Pizza Manager(Auto)\n| (3)Pizza Chef(Manual)\n";
-int select;
-cin >> select;
-return select;
   }
