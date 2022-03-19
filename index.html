@@ -39,3 +39,23 @@ resell items to make money.
 </body> 
 
 </html>
+
+<button onclick="hyper()" style="background-color:rgb(2, 141, 255);color:rgb(255, 255, 255);border-radius:5px;text-shadow: 1px 1px #000000">Hyperlink Page</button>
+
+<script>
+  function hyper(){
+  var password;
+  var pass1="abc123";
+  var pass2=" abc123";
+  password=prompt('Enter the password to continue (no spaces)',' ');
+  
+  if (password==pass1){
+  alert('Password verified, reauthenticating...');
+  window.location="https://mitzioogando.github.io/hyperlinks.html";
+  }
+  else{
+      location.reload()
+  }
+  }
+  </script>
+  
