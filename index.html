@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+#body 
+{
+    font-family: Verdana;
+    font-size: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #424242;
+}
+#head
+{
+    padding: 10px;
+    font-size: 32px;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    user-select: none;
+}
+#checklist
+{
+    text-align: center;
+    margin: 0 auto;
+    color: black;
+    background-color: #FFFFFF;
+    max-width: fit-content;
+    padding: 10px;
+}
+#completed
+{
+    text-align: center;
+    margin: 0 auto;
+    color: black;
+    background-color: #FFFFFF;
+    max-width: fit-content;
+    padding: 10px;
+}
+#text
+{
+    user-select: none;
+    font-size: larger;
+}
+button
+{
+    border: none;
+    position: relative;
+    transition-duration: .4s;
+    font-weight: bold;
+    background-color: white;
+    font-size: x-large;
+}
+button:hover
+{
+    background-color: #4c8bf5;
+}
+</style>
+
+<body id="body">
+<h1 id="head">Checklist!</h1><br>
+
+<div id="checklist">
+<span id="text">To do:</span>
+<br>&ensp;
+    <button onclick="check(this)">
+    <img style="width: 25px; height: 25px;" src="https://cdn.discordapp.com/attachments/976147106446327859/987390419467894794/imgonline-com-ua-Transparent-background-fouoHBDI3as8g5DY.png">
+    <span>Purchase milk</span>
+    </button>&emsp;
+</div>
+
+<br><br><br><br>
+<div id="completed">
+<span id="text">Completed:</span>
+<br>&ensp;
+
+</div>
+
+</body>
+
+
+<script>
+var hmm;
+function check($element)
+{
+    if(hmm == 1)
+    {
+        alert("Piss off scallywag!");
+        return;
+    }
+    hmm = 1;
+    $("#completed").append($element);
+}
+</script>
